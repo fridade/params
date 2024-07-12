@@ -11,6 +11,7 @@ pipeline {
             steps {
                 echo "hi ${params.firstname} ${params.lastname}, welcome"
             }
+        }
         
         stage('deploy to dev') {
            when {
