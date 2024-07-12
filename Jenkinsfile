@@ -7,27 +7,12 @@ pipeline {
 
 
     stages {
-        stage('Hello') {
+        stage('welcome') {
             steps {
-                echo 'Hello World'
+                echo "hi ${params.firstname} ${params.lastname}, welcome"
             }
         }
-        stage('stage2') {
-            steps {
-                echo 'Hello World bonjour'
-            }
-        }
-        stage('stage3') {
-            steps {
-                echo 'Hello World bonjour'
-            }
-            
-        }
-        stage('stage4') {
-            steps {
-                echo 'Hello World bonjour'
-            }
-            
-        }
+        
+        
     }
 }
