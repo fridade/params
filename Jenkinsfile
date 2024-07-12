@@ -1,10 +1,9 @@
 pipeline {
     agent any
     parameters {
-      string defaultValue: 'fritz', description: 'Enter firstname', name: 'firstname '
-      string defaultValue: 'mbog', description: 'Enter lastname ', name: 'lastname '
+        string(defaultValue: 'fritz', description: 'Enter firstname', name: 'firstname')
+        string(defaultValue: 'mbog', description: 'Enter lastname', name: 'lastname')
     }
-
 
     stages {
         stage('welcome') {
@@ -12,7 +11,5 @@ pipeline {
                 echo "hi ${params.firstname} ${params.lastname}, welcome"
             }
         }
-        
-        
     }
 }
