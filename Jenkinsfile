@@ -3,7 +3,7 @@ pipeline {
     parameters {
         string(defaultValue: 'fritz', description: 'Enter firstname', name: 'firstname')
         string(defaultValue: 'mbog', description: 'Enter lastname', name: 'lastname')
-        choice choices: ['dev', 'qa', 'stage', 'prod'], description: 'choose the environment ', name: 'Area'
+        choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Choose the environment', name: 'Area')
     }
 
     stages {
@@ -14,34 +14,44 @@ pipeline {
         }
         
         stage('deploy to dev') {
-           when {
-            expression {
-                params.Area == "dev"
+            when {
+                expression {
+                    params.Area == "dev"
+                }
             }
-            steps{
-                echo 'Deploying to dev '
+            steps {
+                echo 'Deploying to dev'
             }
-           }
+        }
+        stage('deploy to qa') {
+            when {
+                expression {
+                    params.Area == "qa"
+                }
+            }
+            steps {
+                echo 'Deploying to qa'
+            }
         }
         stage('deploy to stage') {
-           when {
-            expression {
-                params.Area == "stage"
+            when {
+                expression {
+                    params.Area == "stage"
+                }
             }
-            steps{
+            steps {
                 echo 'Deploying to stage'
             }
-           }
         }
         stage('deploy to prod') {
-           when {
-            expression {
-                params.Area == "prod"
+            when {
+                expression {
+                    params.Area == "prod"
+                }
             }
-            steps{
+            steps {
                 echo 'Deploying to prod'
             }
-           }
         }
     }
 }
