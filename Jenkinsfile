@@ -11,17 +11,7 @@ pipeline {
             steps {
                 echo "hi ${params.firstname} ${params.lastname}, welcome"
             }
-        }
-        stage('deploy to dev') {
-           when {
-            expression {
-                params.Area == "dev"
-            }
-            steps{
-                echo 'Deploying to dev'
-            }
-           }
-        }
+        
         stage('deploy to dev') {
            when {
             expression {
